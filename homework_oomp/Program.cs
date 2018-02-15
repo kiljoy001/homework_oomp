@@ -1,12 +1,20 @@
-﻿using System;
+﻿using Scrypt;
+using System;
 
 namespace homework_oomp
 {
     class Program
     {
+        private const string Wet = @"#Wet";
+        private const string Time = @"#Time";
+        private const string Node = @"#Node";
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ScryptEncoder hashstring = new ScryptEncoder();
+            string fakeHeader = hashstring.Encode("somerandomstring");
+            Console.WriteLine(fakeHeader);
+            Console.ReadLine();
         }
     }
 }
