@@ -6,23 +6,27 @@ namespace homework_oomp
 {
     public class MsgProcessor
     {
-        private List<IMessage> MsgHolder;
-
+        private Queue<IMessage> MsgHolder;
+        
         public MsgProcessor()
         {
-            MsgHolder = new List<IMessage>();
+            MsgHolder = new Queue<IMessage>();
         }
 
         public void Add(IMessage message)
         {
-            MsgHolder.Add(message);
+            MsgHolder.Enqueue(message);
         }
 
+        public IMessage GetMessage()
+        {
+           return MsgHolder.Dequeue();
+        }
         public void Clear()
         {
             MsgHolder.Clear();
         }
 
-        public List<IMessage> Digest { get { return MsgHolder; } }
+        public Queue<IMessage> Digest { get { return MsgHolder; } }
     }
 }
