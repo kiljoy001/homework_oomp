@@ -4,9 +4,6 @@ namespace homework_oomp
 {
     class Program
     {
-        private const string Wet = @"#Wet";
-        private const string Time = @"#Time";
-        private const string Node = @"#Node";
         private const string fakeHeader = "somerandomstring";
         private const string payload = "{\"Id\":\"123\",\"DateOfRegistration\":\"2012-10-21T00:00:00+05:30\",\"Status\":0}";
         static void Main(string[] args)
