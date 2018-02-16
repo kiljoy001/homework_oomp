@@ -23,9 +23,7 @@ namespace MsgTest
             
             Arrange();
             //Act
-            processor.Add((IMessage)mockNode.Object);
-            processor.Add((IMessage)mockWet.Object);
-            processor.Add((IMessage)mockTime.Object);
+            Act();
              
             
             //Assert
@@ -41,11 +39,9 @@ namespace MsgTest
         {
             //Arrange
             Arrange();
-            
+
             //Act
-            processor.Add((IMessage)mockNode.Object);
-            processor.Add((IMessage)mockWet.Object);
-            processor.Add((IMessage)mockTime.Object);
+            Act();
             processor.Clear();
 
             //Assert
@@ -57,12 +53,10 @@ namespace MsgTest
         {
             //Arrange
             Arrange();
-            
+
 
             //Act
-            processor.Add((IMessage)mockNode.Object);
-            processor.Add((IMessage)mockWet.Object);
-            processor.Add((IMessage)mockTime.Object);
+            Act();
 
             //Assert
             foreach (IMessage item in processor.Digest)
@@ -82,6 +76,13 @@ namespace MsgTest
             mockWet.Setup(n => n.Payload()).Returns(payload);
             mockTime.Setup(n => n.Header()).Returns(fakeHeader);
             mockTime.Setup(n => n.Payload()).Returns(payload);   
+        }
+
+        private void Act()
+        {
+            processor.Add((IMessage)mockNode.Object);
+            processor.Add((IMessage)mockWet.Object);
+            processor.Add((IMessage)mockTime.Object);
         }
     }
 }
